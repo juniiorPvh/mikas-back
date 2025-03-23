@@ -14,13 +14,13 @@ data class Cliente(
 
     @ManyToOne
     @JoinColumn(name = "plano_saude_id", referencedColumnName = "id")
-    val planoSaude: PlanoSaude,
+    val planoSaude: PlanoSaude?,
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Endereco
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
-    val endereco: Endereco,
+    val endereco: Endereco?,
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Contato
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
-    val contato: Contato
+    val contato: Contato?
 )

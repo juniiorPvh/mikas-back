@@ -26,3 +26,32 @@ Content-Type: application/json
     "site": "www.consultoriomedico.com"
   }
 }
+
+### /clientes
+
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "pessoa": {
+    "nome": "João da Silva",
+    "cpfCnpj": "12345778900",
+    "email": "joao@email.com",
+    "dataNascimento": "1990-01-01",
+    "tipo": "CLIENTE",
+    "endereco": {
+      "rua": "Rua das Flores",
+      "numero": "123",
+      "complemento": "Sala 456",
+      "bairro": "Centro",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "cep": "01234-567"
+    },
+    "contato": {
+      "telefone": "(11) 1234-5678",
+      "email": "contato@consultoriomedico.com",
+      "site": "www.consultoriomedico.com"
+    }
+  }
+}
