@@ -39,6 +39,7 @@ out/
 ### Kotlin ###
 .kotlin
 
-data
+data/
 
 !**/src/main/resources/*.properties
+src/main/resources/application.properties
