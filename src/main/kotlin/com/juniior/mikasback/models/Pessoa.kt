@@ -2,6 +2,7 @@ package com.juniior.mikasback.models
 
 import jakarta.persistence.*
 import java.time.LocalDate
+import javax.validation.constraints.NotNull
 
 @Entity
 data class Pessoa(
@@ -10,9 +11,13 @@ data class Pessoa(
 
     val nome: String,
 
-    val email: String,
+    @Column(nullable = false, unique = true)
+    @NotNull(message = "CPF/CNPJ não pode ser nulo")
+    val cpfCnpj: String,
 
-    val telefone: String,
+    @Column(nullable = false, unique = true)
+    @NotNull(message = "E-mail não pode ser nulo")
+    val email: String,
 
     val dataNascimento: LocalDate,
 
