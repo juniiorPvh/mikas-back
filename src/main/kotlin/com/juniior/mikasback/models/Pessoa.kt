@@ -6,8 +6,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 data class Pessoa(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    @Id @GeneratedValue val id: Long? = null,
 
     val nome: String,
 
@@ -15,14 +14,7 @@ data class Pessoa(
     @NotNull(message = "CPF/CNPJ não pode ser nulo")
     val cpfCnpj: String,
 
-    @Column(nullable = false, unique = true)
-    @NotNull(message = "E-mail não pode ser nulo")
-    val email: String,
-
     val dataNascimento: LocalDate,
-
-    @Enumerated(EnumType.STRING)
-    val tipo: TipoPessoa,
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Endereco
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")

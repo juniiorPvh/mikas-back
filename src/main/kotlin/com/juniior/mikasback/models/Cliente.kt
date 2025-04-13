@@ -5,8 +5,7 @@ import jakarta.persistence.*
 
 @Entity
 data class Cliente(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    @Id @GeneratedValue val id: Long? = null,
 
     @OneToOne
     @JoinColumn(name = "pessoa_id", referencedColumnName = "id")
@@ -22,5 +21,8 @@ data class Cliente(
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Contato
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
-    val contato: Contato?
+    val contato: Contato?,
+
+    @ManyToOne
+    val consultorio: Consultorio,
 )
