@@ -1,0 +1,174 @@
+### Cadastrar usuário administrador
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "email": "diretor@clinica.com",
+  "senha": "Senha@123",
+  "papel": "ADMIN",
+  "consultorioId": 1,
+  "pessoa": {
+    "nome": "Carlos Silva",
+    "cpfCnpj": "123.456.789-00",
+    "dataNascimento": "1980-05-15",
+    "email": "carlos@clinica.com",
+    "endereco": {
+      "rua": "Avenida Rio Madeira",
+      "numero": "1500",
+      "complemento": "Sala 301",
+      "bairro": "Nova Porto Velho",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76820-408"
+    },
+    "contato": {
+      "telefone": "(69) 98888-7777",
+      "email": "carlos@clinica.com",
+      "site": "www.clinica.com.br"
+    }
+  }
+}
+
+### Cadastrar médico
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "email": "medico1@clinica.com",
+  "senha": "Med@2024",
+  "papel": "MEDICO",
+  "consultorioId": 1,
+  "pessoa": {
+    "nome": "Ana Paula Santos",
+    "cpfCnpj": "234.567.890-11",
+    "dataNascimento": "1985-03-20",
+    "email": "ana@clinica.com",
+    "endereco": {
+      "rua": "Rua Abunã",
+      "numero": "2000",
+      "complemento": "Apto 505",
+      "bairro": "Olaria",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76801-290"
+    },
+    "contato": {
+      "telefone": "(69) 99999-8888",
+      "email": "ana@clinica.com",
+      "site": null
+    }
+  }
+}
+
+### Cadastrar recepcionista
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "email": "recepcionista1@clinica.com",
+  "senha": "Rec@2024",
+  "papel": "RECEPCIONISTA",
+  "consultorioId": 1,
+  "pessoa": {
+    "nome": "Maria Oliveira",
+    "cpfCnpj": "345.678.901-22",
+    "dataNascimento": "1990-07-10",
+    "email": "maria@clinica.com",
+    "endereco": {
+      "rua": "Rua José Amador dos Reis",
+      "numero": "3456",
+      "complemento": null,
+      "bairro": "JK",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76829-378"
+    },
+    "contato": {
+      "telefone": "(69) 97777-6666",
+      "email": "maria@clinica.com",
+      "site": null
+    }
+  }
+}
+
+###
+
+# curl 'http://localhost:8080/usuarios'
+#  -H 'Accept: */*'
+#  -H 'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,es;q=0.6'
+#  -H 'Connection: keep-alive'
+#  -H 'Content-Type: application/json'
+#  -H 'Origin: http://localhost:3000'
+#  -H 'Referer: http://localhost:3000/'
+#  -H 'Sec-Fetch-Dest: empty'
+#  -H 'Sec-Fetch-Mode: cors'
+#  -H 'Sec-Fetch-Site: same-site'
+#  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36'
+#  -H 'sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"'
+#  -H 'sec-ch-ua-mobile: ?0'
+#  -H 'sec-ch-ua-platform: "Windows"'
+#  --data-raw '{"email":"email@email.com","senha":"123123123","papel":"PROFISSIONAL","pessoa":{"nome":"Jussara","cpfCnpj":"00384818181","dataNascimento":"1991-03-15","email":"email@email.com","endereco":{"rua":"rua","numero":"123","complemento":"asda","bairro":"akjsdak","cidade":"kadsj","estado":"aj","cep":"76821-240"},"contato":{"telefone":"6999999","email":"email@email.com","site":""}},"consultorio":{"id":2,"nome":"Clínica Vida e Saúde","cnpj":"45.678.910/0001-11","endereco":{"id":2,"rua":"Rua das Palmeiras","numero":"200","complemento":"Sala 305","bairro":"Jardim América","cidade":"Rio de Janeiro","estado":"RJ","cep":"22450-220"},"contato":{"id":2,"telefone":"(21) 98765-4321","email":"contato@vidasaude.com","site":"www.vidasaude.com"}}}'
+POST http://localhost:8080/usuarios
+Accept: */*
+Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,es;q=0.6
+Connection: keep-alive
+Origin: http://localhost:3000
+Referer: http://localhost:3000/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Content-Type: application/json
+
+{
+  "email": "email@email.com",
+  "senha": "123123123",
+  "papel": "PROFISSIONAL",
+  "pessoa": {
+    "nome": "Jussara",
+    "cpfCnpj": "00384818181",
+    "dataNascimento": "1991-03-15",
+    "email": "email@email.com",
+    "endereco": {
+      "rua": "rua",
+      "numero": "123",
+      "complemento": "asda",
+      "bairro": "akjsdak",
+      "cidade": "kadsj",
+      "estado": "aj",
+      "cep": "76821-240"
+    },
+    "contato": {
+      "telefone": "6999999",
+      "email": "email@email.com",
+      "site": ""
+    }
+  },
+  "consultorio": {
+    "id": 2,
+    "nome": "Clínica Vida e Saúde",
+    "cnpj": "45.678.910/0001-11",
+    "endereco": {
+      "id": 2,
+      "rua": "Rua das Palmeiras",
+      "numero": "200",
+      "complemento": "Sala 305",
+      "bairro": "Jardim América",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "cep": "22450-220"
+    },
+    "contato": {
+      "id": 2,
+      "telefone": "(21) 98765-4321",
+      "email": "contato@vidasaude.com",
+      "site": "www.vidasaude.com"
+    }
+  }
+}
+
+###
+

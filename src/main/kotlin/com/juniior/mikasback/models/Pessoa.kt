@@ -8,13 +8,14 @@ import javax.validation.constraints.NotNull
 data class Pessoa(
     @Id @GeneratedValue val id: Long? = null,
 
-    val nome: String,
+    var nome: String,
 
     @Column(nullable = false, unique = true)
     @NotNull(message = "CPF/CNPJ não pode ser nulo")
-    val cpfCnpj: String,
+    var cpfCnpj: String,
 
-    val dataNascimento: LocalDate,
+    var dataNascimento: LocalDate?,
+    var email: String,
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Endereco
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
@@ -23,4 +24,16 @@ data class Pessoa(
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Contato
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     val contato: Contato
-)
+) {
+    constructor() : this(
+        id = null,
+        nome = "",
+        cpfCnpj = "",
+        dataNascimento = null,
+        email = "",
+        endereco = Endereco(),
+        contato = Contato()
+    ) {
+
+    }
+}

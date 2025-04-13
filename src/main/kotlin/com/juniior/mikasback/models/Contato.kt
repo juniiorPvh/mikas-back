@@ -7,11 +7,11 @@ data class Contato(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
-    val telefone: String,
+    var telefone: String,
 
-    val email: String,
+    var email: String,
 
-    val site: String? = null // Opcional
+    var site: String? = null // Opcional
 ) {
     override fun toString(): String {
         return "Contato(id=$id, telefone='$telefone', email='$email', site=$site)"

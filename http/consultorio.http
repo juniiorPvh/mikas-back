@@ -1,0 +1,45 @@
+### Cadastrar consultórios
+POST http://localhost:8080/consultorio
+Content-Type: application/json
+
+{
+  "nome": "Consultório Saúde Total",
+  "cnpj": "12.345.678/0001-90",
+  "endereco": {
+    "rua": "Avenida Rio Madeira",
+    "numero": "1000",
+    "complemento": "Conjunto 101",
+    "bairro": "Nova Porto Velho",
+    "cidade": "Porto Velho",
+    "estado": "RO",
+    "cep": "76820-408"
+  },
+  "contato": {
+    "telefone": "(69) 98765-4321",
+    "email": "contato@saudetotal.com",
+    "site": "www.saudetotal.com"
+  }
+}
+
+### Cadastrar outro consultório
+POST http://localhost:8080/consultorio
+Content-Type: application/json
+
+{
+  "nome": "Clínica Vida e Saúde",
+  "cnpj": "45.678.910/0001-11",
+  "endereco": {
+    "rua": "Avenida Calama",
+    "numero": "200",
+    "complemento": "Sala 305",
+    "bairro": "São João Bosco",
+    "cidade": "Porto Velho",
+    "estado": "RO",
+    "cep": "76803-768"
+  },
+  "contato": {
+    "telefone": "(69) 98765-4321",
+    "email": "contato@vidasaude.com",
+    "site": "www.vidasaude.com"
+  }
+}

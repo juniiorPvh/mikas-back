@@ -1,25 +1,28 @@
 package com.juniior.mikasback.models
 
-import jakarta.persistence.*
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 
 @Entity
 data class Endereco(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
-    val rua: String,
+    var rua: String,
 
-    val numero: String,
+    var numero: String,
 
-    val complemento: String? = null,
+    var complemento: String? = null,
 
-    val bairro: String,
+    var bairro: String,
 
-    val cidade: String,
+    var cidade: String,
 
-    val estado: String,
+    var estado: String,
 
-    val cep: String
+    var cep: String
 ) {
     override fun toString(): String {
         return "Endereco(id=$id, rua='$rua', numero='$numero', complemento=$complemento, bairro='$bairro', cidade='$cidade', estado='$estado', cep='$cep')"
