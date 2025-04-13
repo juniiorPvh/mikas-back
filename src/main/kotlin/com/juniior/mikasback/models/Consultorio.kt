@@ -17,9 +17,23 @@ data class Consultorio(
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Endereco
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
-    val endereco: Endereco,
+    val endereco: Endereco = Endereco(),
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Contato
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
-    val contato: Contato
-)
+    val contato: Contato =  Contato(),
+) {
+    override fun toString(): String {
+        return "Consultorio(id=$id, nome='$nome', cnpj='$cnpj', endereco=$endereco, contato=$contato)"
+    }
+
+    constructor(): this(
+        id = 0,
+        nome = "",
+        cnpj = "",
+        endereco = Endereco(),
+        contato = Contato()
+    ) {
+        // Construtor vazio para uso em frameworks como Hibernate
+    }
+}
