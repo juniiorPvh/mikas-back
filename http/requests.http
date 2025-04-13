@@ -144,12 +144,13 @@ Content-Type: application/json
   "email": "diretor@clinica.com",
   "senha": "Senha@123",
   "papel": "ADMIN",
-  "consultorioId": 1,
+  "consultorio": {
+    "id": 1
+  },
   "pessoa": {
     "nome": "Carlos Silva",
     "cpfCnpj": "123.456.789-00",
     "dataNascimento": "1980-05-15",
-    "email": "carlos@clinica.com",
     "endereco": {
       "rua": "Avenida Rio Madeira",
       "numero": "1500",
@@ -165,7 +166,7 @@ Content-Type: application/json
       "site": "www.clinica.com.br"
     }
   }
-},
+}
 
 ###
 POST http://localhost:8080/usuarios
@@ -174,13 +175,14 @@ Content-Type: application/json
 {
   "email": "medico1@clinica.com",
   "senha": "Med@2024",
-  "papel": "MEDICO",
-  "consultorioId": 1,
+  "papel": "PROFISSIONAL",
+  "consultorio": {
+    "id": 1
+  },
   "pessoa": {
     "nome": "Ana Paula Santos",
     "cpfCnpj": "234.567.890-11",
     "dataNascimento": "1985-03-20",
-    "email": "ana@clinica.com",
     "endereco": {
       "rua": "Rua Abunã",
       "numero": "2000",
@@ -205,13 +207,14 @@ Content-Type: application/json
 {
   "email": "recepcionista1@clinica.com",
   "senha": "Rec@2024",
-  "papel": "RECEPCIONISTA",
-  "consultorioId": 1,
+  "papel": "PROFISSIONAL",
+  "consultorio": {
+    "id": 1
+  },
   "pessoa": {
     "nome": "Maria Oliveira",
     "cpfCnpj": "345.678.901-22",
     "dataNascimento": "1990-07-10",
-    "email": "maria@clinica.com",
     "endereco": {
       "rua": "Rua José Amador dos Reis",
       "numero": "3456",
@@ -236,13 +239,14 @@ Content-Type: application/json
 {
   "email": "medico2@clinica.com",
   "senha": "DrJoao@2024",
-  "papel": "MEDICO",
-  "consultorioId": 1,
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 1
+  },
   "pessoa": {
     "nome": "João Pedro Ferreira",
     "cpfCnpj": "456.789.012-33",
     "dataNascimento": "1975-12-03",
-    "email": "joao@clinica.com",
     "endereco": {
       "rua": "Avenida Sete de Setembro",
       "numero": "1234",
@@ -267,13 +271,14 @@ Content-Type: application/json
 {
   "email": "enfermeira1@clinica.com",
   "senha": "Enf@2024",
-  "papel": "ENFERMEIRO",
-  "consultorioId": 1,
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 1
+  },
   "pessoa": {
     "nome": "Juliana Costa",
     "cpfCnpj": "567.890.123-44",
     "dataNascimento": "1988-09-25",
-    "email": "juliana@clinica.com",
     "endereco": {
       "rua": "Rua Venezuela",
       "numero": "2345",
@@ -299,12 +304,13 @@ Content-Type: application/json
   "email": "admin2@clinica.com",
   "senha": "Adm@2024",
   "papel": "ADMIN",
-  "consultorioId": 1,
+  "consultorio": {
+    "id": 2
+  },
   "pessoa": {
     "nome": "Roberto Alves",
     "cpfCnpj": "678.901.234-55",
     "dataNascimento": "1982-04-18",
-    "email": "roberto@clinica.com",
     "endereco": {
       "rua": "Avenida Calama",
       "numero": "4567",
@@ -330,13 +336,14 @@ Content-Type: application/json
 {
   "email": "medico3@clinica.com",
   "senha": "DrLuiz@2024",
-  "papel": "MEDICO",
-  "consultorioId": 1,
+  "papel": "PROFISSIONAL",
+  "consultorio": {
+    "id": 2
+  },
   "pessoa": {
     "nome": "Luiz Antonio Silva",
     "cpfCnpj": "789.012.345-66",
     "dataNascimento": "1970-11-30",
-    "email": "luiz@clinica.com",
     "endereco": {
       "rua": "Rua Dom Pedro II",
       "numero": "5678",
@@ -361,13 +368,14 @@ Content-Type: application/json
 {
   "email": "recepcionista2@clinica.com",
   "senha": "Rec2@2024",
-  "papel": "RECEPCIONISTA",
-  "consultorioId": 1,
+  "papel": "PROFISSIONAL",
+  "consultorio": {
+    "id": 2
+  },
   "pessoa": {
     "nome": "Patricia Santos",
     "cpfCnpj": "890.123.456-77",
     "dataNascimento": "1992-08-15",
-    "email": "patricia@clinica.com",
     "endereco": {
       "rua": "Rua Joaquim Nabuco",
       "numero": "789",
@@ -390,30 +398,31 @@ POST http://localhost:8080/usuarios
 Content-Type: application/json
 
 {
-"email": "enfermeira2@clinica.com",
-"senha": "Enf2@2024",
-"papel": "ENFERMEIRO",
-"consultorioId": 1,
-"pessoa": {
-"nome": "Fernanda Lima",
-"cpfCnpj": "901.234.567-88",
-"dataNascimento": "1986-06-20",
-"email": "fernanda@clinica.com",
-"endereco": {
-"rua": "Rua José de Alencar",
-"numero": "890",
-"complemento": "Apto 303",
-"bairro": "Caiari",
-"cidade": "Porto Velho",
-"estado": "RO",
-"cep": "76801-036"
-},
-"contato": {
-"telefone": "(69) 91111-0000",
-"email": "fernanda@clinica.com",
-"site": null
-}
-}
+  "email": "enfermeira2@clinica.com",
+  "senha": "Enf2@2024",
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 2
+  },
+  "pessoa": {
+    "nome": "Fernanda Lima",
+    "cpfCnpj": "901.234.567-88",
+    "dataNascimento": "1986-06-20",
+    "endereco": {
+      "rua": "Rua José de Alencar",
+      "numero": "890",
+      "complemento": "Apto 303",
+      "bairro": "Caiari",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76801-036"
+    },
+    "contato": {
+      "telefone": "(69) 91111-0000",
+      "email": "fernanda@clinica.com",
+      "site": null
+    }
+  }
 }
 
 ###
@@ -421,30 +430,31 @@ POST http://localhost:8080/usuarios
 Content-Type: application/json
 
 {
-"email": "medico4@clinica.com",
-"senha": "DraMaria@2024",
-"papel": "MEDICO",
-"consultorioId": 1,
-"pessoa": {
-"nome": "Maria Clara Souza",
-"cpfCnpj": "012.345.678-99",
-"dataNascimento": "1983-02-28",
-"email": "mariaclara@clinica.com",
-"endereco": {
-"rua": "Avenida Nações Unidas",
-"numero": "1000",
-"complemento": "Sala 601",
-"bairro": "Nossa Senhora das Graças",
-"cidade": "Porto Velho",
-"estado": "RO",
-"cep": "76804-144"
-},
-"contato": {
-"telefone": "(69) 90000-9999",
-"email": "mariaclara@clinica.com",
-"site": "www.dramariaclara.com.br"
-}
-}
+  "email": "medico4@clinica.com",
+  "senha": "DraMaria@2024",
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 2
+  },
+  "pessoa": {
+    "nome": "Maria Clara Souza",
+    "cpfCnpj": "012.345.678-99",
+    "dataNascimento": "1983-02-28",
+    "endereco": {
+      "rua": "Avenida Nações Unidas",
+      "numero": "1000",
+      "complemento": "Sala 601",
+      "bairro": "Nossa Senhora das Graças",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76804-144"
+    },
+    "contato": {
+      "telefone": "(69) 90000-9999",
+      "email": "mariaclara@clinica.com",
+      "site": "www.dramariaclara.com.br"
+    }
+  }
 }
 
 ###
@@ -455,12 +465,13 @@ Content-Type: application/json
   "email": "admin3@clinica.com",
   "senha": "Adm3@2024",
   "papel": "ADMIN",
-  "consultorioId": 1,
+  "consultorio": {
+    "id": 3
+  },
   "pessoa": {
     "nome": "Ricardo Mendes",
     "cpfCnpj": "123.456.789-10",
     "dataNascimento": "1978-10-05",
-    "email": "ricardo@clinica.com",
     "endereco": {
       "rua": "Rua Almirante Barroso",
       "numero": "2222",
@@ -485,61 +496,31 @@ POST http://localhost:8080/usuarios
 Content-Type: application/json
 
 {
-"email": "recepcionista3@clinica.com",
-"senha": "Rec3@2024",
-"papel": "RECEPCIONISTA",
-"consultorioId": 1,
-"pessoa": {
-"nome": "Sandra Regina",
-"cpfCnpj": "234.567.890-11",
-"dataNascimento": "1991-12-15",
-"email": "sandra@clinica.com",
-"endereco": {
-"rua": "Rua Duque de Caxias",
-"numero": "3333",
-"complemento": null,
-"bairro": "São Cristóvão",
-"cidade": "Porto Velho",
-"estado": "RO",
-"cep": "76804-022"
-},
-"contato": {
-"telefone": "(69) 98888-7777",
-"email": "sandra@clinica.com",
-"site": null
-}
-}
-}
-
-###
-POST http://localhost:8080/usuarios
-Content-Type: application/json
-
-{
-"email": "medico5@clinica.com",
-"senha": "DrPaulo@2024",
-"papel": "MEDICO",
-"consultorioId": 1,
-"pessoa": {
-"nome": "Paulo Roberto Santos",
-"cpfCnpj": "345.678.901-12",
-"dataNascimento": "1977-07-22",
-"email": "paulo@clinica.com",
-"endereco": {
-"rua": "Avenida Carlos Gomes",
-"numero": "4444",
-"complemento": "Sala 701",
-"bairro": "Centro",
-"cidade": "Porto Velho",
-"estado": "RO",
-"cep": "76801-123"
-},
-"contato": {
-"telefone": "(69) 97777-6666",
-"email": "paulo@clinica.com",
-"site": "www.drpaulo.com.br"
-}
-}
+  "email": "recepcionista3@clinica.com",
+  "senha": "Rec3@2024",
+  "papel": "PROFISSIONAL",
+  "consultorio": {
+    "id": 3
+  },
+  "pessoa": {
+    "nome": "Sandra Regina",
+    "cpfCnpj": "234.567.890-11",
+    "dataNascimento": "1991-12-15",
+    "endereco": {
+      "rua": "Rua Duque de Caxias",
+      "numero": "3333",
+      "complemento": null,
+      "bairro": "São Cristóvão",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76804-022"
+    },
+    "contato": {
+      "telefone": "(69) 98888-7777",
+      "email": "sandra@clinica.com",
+      "site": null
+    }
+  }
 }
 
 ###
@@ -547,30 +528,63 @@ POST http://localhost:8080/usuarios
 Content-Type: application/json
 
 {
-"email": "enfermeira3@clinica.com",
-"senha": "Enf3@2024",
-"papel": "ENFERMEIRO",
-"consultorioId": 1,
-"pessoa": {
-"nome": "Camila Rodrigues",
-"cpfCnpj": "456.789.012-13",
-"dataNascimento": "1989-04-30",
-"email": "camila@clinica.com",
-"endereco": {
-"rua": "Rua Alexandre Guimarães",
-"numero": "5555",
-"complemento": null,
-"bairro": "Agenor de Carvalho",
-"cidade": "Porto Velho",
-"estado": "RO",
-"cep": "76820-063"
-},
-"contato": {
-"telefone": "(69) 96666-5555",
-"email": "camila@clinica.com",
-"site": null
+  "email": "medico5@clinica.com",
+  "senha": "DrPaulo@2024",
+  "papel": "PROFISSIONAL",
+  "consultorio": {
+    "id": 3
+  },
+  "pessoa": {
+    "nome": "Paulo Roberto Santos",
+    "cpfCnpj": "345.678.901-12",
+    "dataNascimento": "1977-07-22",
+    "endereco": {
+      "rua": "Avenida Carlos Gomes",
+      "numero": "4444",
+      "complemento": "Sala 701",
+      "bairro": "Centro",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76801-123"
+    },
+    "contato": {
+      "telefone": "(69) 97777-6666",
+      "email": "paulo@clinica.com",
+      "site": "www.drpaulo.com.br"
+    }
+  }
 }
-}
+
+###
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "email": "enfermeira3@clinica.com",
+  "senha": "Enf3@2024",
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 3
+  },
+  "pessoa": {
+    "nome": "Camila Rodrigues",
+    "cpfCnpj": "456.789.012-13",
+    "dataNascimento": "1989-04-30",
+    "endereco": {
+      "rua": "Rua Alexandre Guimarães",
+      "numero": "5555",
+      "complemento": null,
+      "bairro": "Agenor de Carvalho",
+      "cidade": "Porto Velho",
+      "estado": "RO",
+      "cep": "76820-063"
+    },
+    "contato": {
+      "telefone": "(69) 96666-5555",
+      "email": "camila@clinica.com",
+      "site": null
+    }
+  }
 }
 
 ###
@@ -580,13 +594,14 @@ Content-Type: application/json
 {
   "email": "medico6@clinica.com",
   "senha": "DraBeatriz@2024",
-  "papel": "MEDICO",
-  "consultorioId": 1,
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 3
+  },
   "pessoa": {
     "nome": "Beatriz Almeida",
     "cpfCnpj": "567.890.123-14",
     "dataNascimento": "1981-01-15",
-    "email": "beatriz@clinica.com",
     "endereco": {
       "rua": "Avenida Jatuarana",
       "numero": "6666",
@@ -601,5 +616,23 @@ Content-Type: application/json
       "email": "beatriz@clinica.com",
       "site": "www.drabeatriz.com.br"
     }
+  }
+}
+
+###
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "email": "pacente08@clinica.com",
+  "senha": "DraBeatriz@2024",
+  "papel": "PACIENTE",
+  "consultorio": {
+    "id": 4
+  },
+  "pessoa": {
+    "nome": "Beatriz Almeida",
+    "cpfCnpj": "599.890.123-14",
+    "dataNascimento": "1981-01-15"
   }
 }

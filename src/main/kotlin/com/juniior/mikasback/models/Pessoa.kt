@@ -15,24 +15,22 @@ data class Pessoa(
     var cpfCnpj: String,
 
     var dataNascimento: LocalDate?,
-    var email: String,
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Endereco
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
-    val endereco: Endereco,
+    var endereco: Endereco? = null,
 
     @ManyToOne(cascade = [CascadeType.ALL]) // Relacionamento com Contato
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
-    val contato: Contato
+    var contato: Contato? = null
 ) {
     constructor() : this(
         id = null,
         nome = "",
         cpfCnpj = "",
         dataNascimento = null,
-        email = "",
-        endereco = Endereco(),
-        contato = Contato()
+        endereco = null,
+        contato = null
     ) {
 
     }

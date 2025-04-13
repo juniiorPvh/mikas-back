@@ -64,4 +64,11 @@ class UsuarioController(
         val usuarios = usuarioService.buscarPorPapel(papel)
         return ResponseEntity.ok(usuarios)
     }
+
+    // Buscar usuários por consultório
+    @GetMapping("/consultorio/{consultorioId}")
+    fun buscarPorConsultorio(@PathVariable consultorioId: Long): ResponseEntity<List<Usuario>> {
+        val usuarios = usuarioService.buscarPorConsultorio(consultorioId)
+        return ResponseEntity.ok(usuarios)
+    }
 }

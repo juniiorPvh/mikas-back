@@ -29,7 +29,6 @@ data class Usuario(
             nome = "",
             cpfCnpj = "",
             dataNascimento = null,
-            email = "",
             endereco = Endereco(),
             contato = Contato()
         )

@@ -20,36 +20,39 @@ class UsuarioService(
     @Transactional
     fun cadastrarUsuario(usuarioDTO: UsuarioDTO): Usuario {
         // Cria e salva o endereço
-        val endereco = Endereco(
-            rua = usuarioDTO.pessoa.endereco.rua,
-            numero = usuarioDTO.pessoa.endereco.numero,
-            complemento = usuarioDTO.pessoa.endereco.complemento,
-            bairro = usuarioDTO.pessoa.endereco.bairro,
-            cidade = usuarioDTO.pessoa.endereco.cidade,
-            estado = usuarioDTO.pessoa.endereco.estado,
-            cep = usuarioDTO.pessoa.endereco.cep
-        )
+        val endereco = usuarioDTO.pessoa.endereco?.let {
+            Endereco(
+                rua = it.rua,
+                numero = usuarioDTO.pessoa.endereco.numero,
+                complemento = usuarioDTO.pessoa.endereco.complemento,
+                bairro = usuarioDTO.pessoa.endereco.bairro,
+                cidade = usuarioDTO.pessoa.endereco.cidade,
+                estado = usuarioDTO.pessoa.endereco.estado,
+                cep = usuarioDTO.pessoa.endereco.cep
+            )
+        }
 
         // Cria e salva o contato
-        val contato = Contato(
-            telefone = usuarioDTO.pessoa.contato.telefone,
-            email = usuarioDTO.pessoa.contato.email,
-            site = usuarioDTO.pessoa.contato.site
-        )
+        val contato = usuarioDTO.pessoa.contato?.let {
+            Contato(
+                telefone = it.telefone,
+                email = usuarioDTO.pessoa.contato.email,
+                site = usuarioDTO.pessoa.contato.site
+            )
+        }
 
         // Cria e salva a pessoa
         val pessoa = Pessoa(
             nome = usuarioDTO.pessoa.nome,
             cpfCnpj = usuarioDTO.pessoa.cpfCnpj,
             dataNascimento = usuarioDTO.pessoa.dataNascimento,
-            email = usuarioDTO.pessoa.email,
             endereco = endereco,
             contato = contato
         )
         val pessoaSalva = pessoaRepository.save(pessoa)
 
         // Busca o consultório
-        val consultorio = consultorioRepository.findById(usuarioDTO.consultorioId)
+        val consultorio = consultorioRepository.findById(usuarioDTO.consultorio.id)
             .orElseThrow { EntityNotFoundException("Consultório não encontrado") }
 
         // Cria e salva o usuário
@@ -92,24 +95,39 @@ class UsuarioService(
             nome = usuarioDTO.pessoa.nome
             cpfCnpj = usuarioDTO.pessoa.cpfCnpj
             dataNascimento = usuarioDTO.pessoa.dataNascimento
-            email = usuarioDTO.pessoa.email
 
-            // Atualiza endereço
-            endereco.apply {
-                rua = usuarioDTO.pessoa.endereco.rua
-                numero = usuarioDTO.pessoa.endereco.numero
-                complemento = usuarioDTO.pessoa.endereco.complemento
-                bairro = usuarioDTO.pessoa.endereco.bairro
-                cidade = usuarioDTO.pessoa.endereco.cidade
-                estado = usuarioDTO.pessoa.endereco.estado
-                cep = usuarioDTO.pessoa.endereco.cep
+            // Atualiza ou remove endereço
+            endereco = usuarioDTO.pessoa.endereco?.let {
+                endereco?.apply {
+                    rua = it.rua
+                    numero = it.numero
+                    complemento = it.complemento
+                    bairro = it.bairro
+                    cidade = it.cidade
+                    estado = it.estado
+                    cep = it.cep
+                } ?: Endereco(
+                    rua = it.rua,
+                    numero = it.numero,
+                    complemento = it.complemento,
+                    bairro = it.bairro,
+                    cidade = it.cidade,
+                    estado = it.estado,
+                    cep = it.cep
+                )
             }
 
-            // Atualiza contato
-            contato.apply {
-                telefone = usuarioDTO.pessoa.contato.telefone
-                email = usuarioDTO.pessoa.contato.email
-                site = usuarioDTO.pessoa.contato.site
+            // Atualiza ou remove contato
+            contato = usuarioDTO.pessoa.contato?.let {
+                contato?.apply {
+                    telefone = it.telefone
+                    email = it.email
+                    site = it.site
+                } ?: Contato(
+                    telefone = it.telefone,
+                    email = it.email,
+                    site = it.site
+                )
             }
         }
 
@@ -129,5 +147,13 @@ class UsuarioService(
 
     fun buscarPorPapel(papel: PapelUsuario): List<Usuario> {
         return usuarioRepository.findByPapel(papel)
+    }
+
+    fun buscarPorConsultorio(consultorioId: Long): List<Usuario> {
+        // Verifica se o consultório existe
+        consultorioRepository.findById(consultorioId)
+            .orElseThrow { EntityNotFoundException("Consultório não encontrado") }
+
+        return usuarioRepository.findByConsultorioId(consultorioId)
     }
 }

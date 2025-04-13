@@ -6,7 +6,6 @@ data class PessoaDTO(
     val nome: String,
     val cpfCnpj: String,
     val dataNascimento: LocalDate,
-    val email: String,
-    val endereco: EnderecoDTO,
-    val contato: ContatoDTO
+    val endereco: EnderecoDTO?,
+    val contato: ContatoDTO?
 )
